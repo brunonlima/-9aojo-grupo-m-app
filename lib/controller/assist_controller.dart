@@ -6,14 +6,15 @@ class AssistController extends GetxController with StateMixin<List<Assist>> {
   late AssistService _service;
   List<Assist> allAssists = [];
   List<Assist> selectAssists = [];
+
   @override
   void onInit() {
     super.onInit();
     _service = Get.find<AssistService>();
     getAssistList();
   }
-  
-   @override
+
+  @override
   void onReady() {
     super.onReady();
     selectAssists = Get.arguments;
