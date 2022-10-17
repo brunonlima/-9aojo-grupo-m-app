@@ -1,4 +1,4 @@
 class Constants {
-  static const url = 'http://localhost:8080';
+  static const url = 'http://Abctechapi-env-1.eba-wfefjkbf.us-east-1.elasticbeanstalk.com';
 
 }
