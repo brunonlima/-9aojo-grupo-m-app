@@ -34,6 +34,12 @@ class OrderPage extends GetView<OrderController> {
               controller: controller.operatorIdController,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               keyboardType: TextInputType.number,
+              validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+              },
               decoration:
                   const InputDecoration(labelText: "Código do prestador"),
               textAlign: TextAlign.center,
@@ -66,7 +72,11 @@ class OrderPage extends GetView<OrderController> {
             Row(children: [
               Expanded(
                   child: ElevatedButton(
-                      onPressed: () => controller.finishStartOrder(),
+                      onPressed: () {
+                          if (controller.formKey.currentState!.validate()) {
+                                controller.finishStartOrder(); 
+                          } 
+                      },
                       child: Obx(
                         () {
                           if (controller.screenState.value ==
