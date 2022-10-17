@@ -67,13 +67,13 @@ class OrderPage extends GetView<OrderController> {
                   height: 40)
             ]),
             Obx(
-              () => renderAssists(controller.selectedAssists),
+              () => renderAssists(controller.selectedAssists)
             ),
             Row(children: [
               Expanded(
                   child: ElevatedButton(
                       onPressed: () {
-                          if (controller.formKey.currentState!.validate()) {
+                          if (controller.formKey.currentState!.validate() && controller.selectedAssists.length > 0) {
                                 controller.finishStartOrder(); 
                           } 
                       },
